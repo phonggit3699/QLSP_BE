@@ -1,15 +1,15 @@
-import {inject, lifeCycleObserver, LifeCycleObserver} from '@loopback/core';
-import {juggler} from '@loopback/repository';
+import { inject, lifeCycleObserver, LifeCycleObserver } from '@loopback/core';
+import { juggler } from '@loopback/repository';
 
 const config = {
   name: 'qlsp',
   connector: 'mssql',
-  url: 'mssql://sa:Abc123@localhost/qlsp',
+  url: 'mssql://sa:030699@localhost/QLSPDB',
   host: 'localhost',
   port: 1433,
   user: 'sa',
-  password: 'Abc123',
-  database: 'qlsp'
+  password: '030699',
+  database: 'QLSPDB'
 };
 
 // Observe application's life cycle to disconnect the datasource when
@@ -23,7 +23,7 @@ export class QlspDataSource extends juggler.DataSource
   static readonly defaultConfig = config;
 
   constructor(
-    @inject('datasources.config.qlsp', {optional: true})
+    @inject('datasources.config.qlsp', { optional: true })
     dsConfig: object = config,
   ) {
     super(dsConfig);
